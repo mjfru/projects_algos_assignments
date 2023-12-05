@@ -10,7 +10,29 @@ pushFront([99], 7) => [7,99]
 */
 
 //? Solution:
+let pushFront = (arr, num) => {
+  // arr.push(num);
+  for (let i = arr.length; i > 0; i--) {
+    arr[i] = arr[i - 1];
+    // console.log(arr);
+  }
 
+  arr[0] = num;
+  console.log(arr);
+  return arr;
+}
+
+pushFront([2, 1, 5], 123);
+
+//? OR:
+
+let pushFrontVariant = (arr, num) => {
+  arr.unshift(num);
+  console.log(arr);
+  return arr;
+}
+
+pushFrontVariant([2, 6, 8], 7)
 
 //! Pop Front
 /* 
