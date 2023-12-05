@@ -47,6 +47,26 @@ popFront([4,5,7,9]) => 4 returned, with [5,7,9] printed in the function
 */
 
 //? Solution:
+let popFront = (arr) => {
+  let poppedNum = arr[0]
+  // Store the first index from the start
+  console.log(poppedNum);
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    // Initialize i at 0, while I is still less than the length of the array, increase i by one each iteration
+    arr[i] = arr[i + 1]
+    // arr[0] = arr[0 + 1] (1)
+    // arr[1] = arr[1 + 1] (2)
+    // console.log("working...")
+  }
+  // Pop the duplicated now that everything has shifted:
+  arr.pop();
+  console.log(arr);
+  console.log(`The number removed was ${poppedNum}`)
+}
+
+popFront([1, 2, 3])
+popFront([5, 23, 57, 11])
 
 //! Insert At
 /*
