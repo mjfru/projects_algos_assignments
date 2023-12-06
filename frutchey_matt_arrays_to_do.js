@@ -62,7 +62,7 @@ let popFront = (arr) => {
   // Pop the duplicated now that everything has shifted:
   arr.pop();
   console.log(arr);
-  console.log(`The number removed was ${poppedNum}`)
+  console.log(`The number removed was ${poppedNum}.`)
 }
 
 popFront([1, 2, 3])
@@ -79,9 +79,48 @@ insertAt([9,33,7], 1, 42) => [9,42,33,7]
 */
 
 //? Solution:
+let insertAt = (arr, index, value) => {
+  if (index > arr.length) {
+    // If the provided index is greater than the length of the array...
+    arr.push(value);
+    // Simply push it to the end.
+    // Or, arr[arr.length] = value
+    return arr;
+  } else {
+    for (let i = arr.length; i > index; i--) {
+      // Will start from the last index (arr.length)
+      // While i is still greater than the provided index...
+      // Decrement by 1 and...
+        arr[i] = arr[i - 1]
+        // The current index takes the value of the index behind it, shifting everything right, making room for the eventual new value 
+    }
+    arr[index] = value;
+  }
+  return arr;
+}
 
+console.log(insertAt([9, 33, 7], 1, 42));
+console.log(insertAt([100,200,5], 2, 311));
+
+//? With a built-in method:
+let insertAtSplice = (arr, index, value) => {
+  if (index > arr.length) {
+    arr.push(value);
+    console.log(arr);
+  } else {
+  arr.splice(index, 0, value);
+  //? Splice Method:
+  // (Position in the array, Where items are to be removed, What value is being added in the position)
+  console.log(arr);
+  }
+}
+
+// insertAtSplice([100,200,5], 2, 311)
+// insertAtSplice([9, 33, 7], 1, 42);
+// insertAtSplice([1, 2], 4, 400)
 
 //! Bonus: Remove At:
+//* To be done later
 /*
 Given an array and an index into array, remove and return the array value at that index. 
 Prove the value is removed from the array by printing it. 
@@ -96,6 +135,7 @@ removeAt([8,20,55,44,98], 3) => 44 returned, with [8,20,55,98] printed in the fu
 //? Solution:
 
 //! Bonus: Swap Pairs
+//* To be done later
 /*
 Swap positions of successive pairs of values of given array. 
 If length is odd, do not change the final element.
@@ -109,6 +149,7 @@ insertAt(["Brendan",true,42]) => [true,"Brendan",42]
 //? Solution:
 
 //! Bonus: Remove Duplicates
+//* To be done later
 /*
 Given a sorted array, remove duplicate values. 
 Because array elements are already in order, all duplicate values will be grouped together. 
